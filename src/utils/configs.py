@@ -3,30 +3,9 @@
 NUMBER_OF_PROMPTS = 10 
 
 # Path Variables
-path_to_prompts = "/home/ec2-user/SageMaker/Auto_Prompt/instruction_generation_templates"
-initial_df_path = '/home/ec2-user/SageMaker/tealium-rag/finalized_ragas.csv'
-path_to_data = "/home/ec2-user/SageMaker/Auto_Prompt/data/"
-path_to_ragas_outputs = f"{path_to_data}ragas_output.csv"
+path_to_prompts = "../instruction_generation_templates"
+path_to_data = "../data/"
 path_to_prompt_ids = f"{path_to_data}prompt_ids.csv"
-
-# Tealium RAG Call
-max_tokens_to_sample_claude = 4000
-invalid_str = 'THEREWERENOPROVIDEDURLS123'
-invalid_str_response = """I apologize, but I was unable to find any relevant
-            documentation to answer your question. Please contact customer
-            support for further assistance."""
-invalid_str_reply = """ (PLEASE NOTE: I am Tealium's AI Bot and I am here to
-                    assist. Please be specific in your question for a better
-                    response. Please look into the recommended urls if my
-                    immediate response is not satisfactory. Reach out to
-                    Tealium customer service at https://support.tealiumiq.com
-                    in case of an unsatisfactory recommended URLs and response.
-                    My current version is supported by documentation from
-                    docs.tealium.com. I am a retrieval augmented generation
-                    system based on Anthropic Claude. I am trying to learn and
-                    get better. If my above response was correct please leave
-                    a :+1: emoji and otherwise please leave a :-1: emoji.
-                    Thank you!)"""
 
 # K is a constant factor that determines how much ratings change
 K = 32

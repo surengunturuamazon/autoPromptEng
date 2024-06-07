@@ -5,8 +5,7 @@ import sys
 sys.path.insert(0, "/home/ec2-user/SageMaker/Auto-Prompt/src")
 from src.utils.functions import generate_ex_prompt_styles,\
                                 generate_optimal_prompt
-from src.utils.configs import path_to_ragas_outputs,\
-                              path_to_prompt_ids,\
+from src.utils.configs import path_to_prompt_ids,\
                               path_to_data, NUMBER_OF_PROMPTS
 
 
@@ -61,7 +60,7 @@ def autoprompt(fix_prompts):
     df_prompts.to_csv(f'{path_to_data}prompt_ids.csv', index=False)
 
 
-def run_autoprompts(auto):
+def run_autoprompts(auto, path_to_ragas_outputs):
     """
     Preprocess dataset and call automatic prompt engineering function. 
     Args: 

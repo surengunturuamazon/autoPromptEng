@@ -53,7 +53,7 @@ def llm_response_to_json(llm_output):
     # Use regular expressions to find content between curly braces
     matches = re.findall(r'\[(.*?)\]', llm_output, re.DOTALL)
     if len(matches) < 1:
-        return "", []
+        return "no matches", []
     try:
         json_obj = json.loads("["+matches[0]+"]")
     except json.JSONDecodeError as e:
@@ -84,8 +84,11 @@ def generate_candidate_prompts(description, test_cases, number_of_prompts,
                                                           test_cases,
                                                           number_of_prompts=
                                                           number_of_prompts)
-        response = llm(formated_prompt)
-        outputs = llm_response_to_json(response)
+        output_str = ""
+        while output_str == "":
+            response = llm(formated_prompt)
+            outputs = llm_response_to_json(response)
+            output_str = outputs[0]
         for output in outputs:
             prompts.append(output["prompt"])
     else:
